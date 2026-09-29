@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500&display=swap');
+@import "../Outbount Design System/tokens/fonts.css";
+@import "../Outbount Design System/tokens/colors.css";
+@import "../Outbount Design System/tokens/typography.css";
+@import "../Outbount Design System/tokens/spacing.css";
+@import "../Outbount Design System/tokens/foundations.css";
+@import "../Outbount Design System/tokens/base.css";
+@import "tailwindcss";
+
+/* Tailwind v4 dark variant — class-based (set by next-themes) */
+@variant dark (&:where(.dark, .dark *));
+
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #f4f4f5;
+  --color-base-300: #e4e4e7;
+  --color-base-content: #09090b;
+  --color-primary: #09090b;
+  --color-primary-content: #ffffff;
+  --color-secondary: #18181b;
+  --color-secondary-content: #ffffff;
+  --color-accent: #007aff;
+  --color-accent-content: #ffffff;
+  --color-neutral: #f4f4f5;
+  --color-neutral-content: #09090b;
+  --color-info: #007aff;
+  --color-info-content: #ffffff;
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+  --color-warning: #d97706;
+  --color-warning-content: #ffffff;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --border: 1px;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  color-scheme: dark;
+  --color-base-100: #111111;
+  --color-base-200: #0a0a0a;
+  --color-base-300: #18181b;
+  --color-base-content: #f4f4f5;
+  --color-primary: #ffffff;
+  --color-primary-content: #09090b;
+  --color-secondary: #e4e4e7;
+  --color-secondary-content: #09090b;
+  --color-accent: #0a84ff;
+  --color-accent-content: #ffffff;
+  --color-neutral: #27272a;
+  --color-neutral-content: #f4f4f5;
+  --color-info: #0a84ff;
+  --color-info-content: #ffffff;
+  --color-success: #22c55e;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #ffffff;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --border: 1px;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+html,
+body {
+  min-height: 100%;
+  background-color: #ffffff;
+  color: #09090b;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================================================
+   CRITICAL: Sync DaisyUI CSS vars when .dark class is set
+   next-themes sets class="dark" on <html>.
+   DaisyUI reads data-theme attribute OR these CSS vars.
+   We override all DaisyUI color vars under .dark so
+   bg-primary / text-primary-content etc all work.
+   ===================================================== */
+html.dark {
+  background-color: #000000;
+  color: #f4f4f5;
+
+  /* DaisyUI base vars */
+  --color-base-100: #111111;
+  --color-base-200: #0a0a0a;
+  --color-base-300: #18181b;
+  --color-base-content: #f4f4f5;
+
+  /* DaisyUI primary/secondary - INVERTED in dark mode */
+  --color-primary: #ffffff;
+  --color-primary-content: #09090b;
+  --color-secondary: #e4e4e7;
+  --color-secondary-content: #09090b;
+
+  /* Other DaisyUI vars */
+  --color-accent: #0a84ff;
+  --color-accent-content: #ffffff;
+  --color-neutral: #27272a;
+  --color-neutral-content: #f4f4f5;
+  --color-info: #0a84ff;
+  --color-info-content: #ffffff;
+  --color-success: #22c55e;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #ffffff;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+}
+
+/* =====================================================
+   SCROLLBARS — hidden everywhere
+   ===================================================== */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* =====================================================
+   LINKS & BASE ELEMENTS
+   ===================================================== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================================================
+   INPUTS & FORM FIELDS — explicit for all pages
+   ===================================================== */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select {
+  background-color: #ffffff;
+  border-color: #e4e4e7;
+  color: #09090b;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a1a1aa;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.dark textarea,
+html.dark select {
+  background-color: #18181b !important;
+  border-color: #3f3f46 !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #71717a !important;
+}
+
+html.dark option {
+  background-color: #18181b;
+  color: #f4f4f5;
+}
+
+/* DaisyUI class-based inputs */
+.input,
+.textarea,
+.select,
+.file-input {
+  background-color: #ffffff;
+  border-color: #e4e4e7;
+  color: #09090b;
+}
+
+html.dark .input,
+html.dark .textarea,
+html.dark .select,
+html.dark .file-input {
+  background-color: #18181b !important;
+  border-color: #3f3f46 !important;
+  color: #f4f4f5 !important;
+}
+
+/* =====================================================
+   TABLES
+   ===================================================== */
+.table :where(th) {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: none;
+  color: #71717a;
+}
+
+html.dark .table :where(th) {
+  color: #a1a1aa;
+}
+
+.table :where(td) {
+  color: #09090b;
+}
+
+html.dark .table :where(td) {
+  color: #f4f4f5;
+}
+
+.table :where(th, td) {
+  border-color: #f4f4f5;
+}
+
+html.dark .table :where(th, td) {
+  border-color: #27272a;
+}
+
+.table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+html.dark .table tbody tr:hover {
+  background-color: #18181b;
+}
+
+/* =====================================================
+   BADGE
+   ===================================================== */
+.badge {
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* =====================================================
+   DaisyUI .loading spinner in dark mode
+   ===================================================== */
+html.dark .loading {
+  color: #f4f4f5;
+}
+
+/* =====================================================
+   BUTTON CONTRAST FIX
+   ===================================================== */
+.btn-primary,
+.btn.btn-primary,
+button.bg-primary,
+button.bg-neutral-900,
+[type="submit"].bg-neutral-900 {
+  background-color: #09090b !important;
+  /* bg-neutral-900 */
+  color: #ffffff !important;
+  /* text-white */
+  border-color: #09090b !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover,
+button.bg-primary:hover,
+button.bg-neutral-900:hover,
+[type="submit"].bg-neutral-900:hover {
+  background-color: #27272a !important;
+  /* hover:bg-neutral-800 */
+  border-color: #27272a !important;
+}
+
+html.dark .btn-primary,
+html.dark .btn.btn-primary,
+html.dark button.bg-primary,
+html.dark button.bg-neutral-900,
+html.dark [type="submit"].bg-neutral-900,
+html.dark button.dark\:bg-white,
+html.dark [type="submit"].dark\:bg-white {
+  background-color: #ffffff !important;
+  /* bg-white */
+  color: #000000 !important;
+  /* text-black */
+  border-color: #ffffff !important;
+}
+
+html.dark .btn-primary:hover,
+html.dark .btn.btn-primary:hover,
+html.dark button.bg-primary:hover,
+html.dark button.bg-neutral-900:hover,
+html.dark [type="submit"].bg-neutral-900:hover,
+html.dark button.dark\:bg-white:hover,
+html.dark [type="submit"].dark\:bg-white:hover {
+  background-color: #e4e4e7 !important;
+  /* hover:bg-neutral-200 */
+  border-color: #e4e4e7 !important;
+}
+
+/* =====================================================
+   CHECKBOX STYLING & HIGH CONTRAST (LIGHT & DARK MODE)
+   ===================================================== */
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem; /* 4px */
+  border: 1.5px solid #a1a1aa !important; /* High contrast border in light mode */
+  background-color: #ffffff !important;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.checkbox-xs {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0.25rem !important;
+}
+
+.checkbox-sm {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  border-radius: 0.25rem !important;
+}
+
+.checkbox-md {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  border-radius: 0.375rem !important;
+}
+
+/* Hover state - Light mode */
+.checkbox:hover:not(:disabled) {
+  border-color: #52525b !important;
+  background-color: #f4f4f5 !important;
+}
+
+/* Dark mode unchecked state - High Contrast */
+html.dark .checkbox {
+  border-color: #52525b !important; /* Visible, high-contrast dark border */
+  background-color: #18181b !important; /* Slightly raised dark background */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .checkbox:hover:not(:disabled) {
+  border-color: #a1a1aa !important;
+  background-color: #27272a !important;
+}
+
+/* Checked state - Light mode */
+.checkbox:checked {
+  background-color: #09090b !important;
+  border-color: #09090b !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-size: 70% 70% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Checked state - Dark mode */
+html.dark .checkbox:checked {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2309090b' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-size: 70% 70% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Indeterminate state */
+.checkbox:indeterminate {
+  background-color: #09090b !important;
+  border-color: #09090b !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E") !important;
+  background-size: 70% 70% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+html.dark .checkbox:indeterminate {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2309090b' stroke-width='3.5' stroke-linecap='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E") !important;
+  background-size: 70% 70% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Focus state */
+.checkbox:focus-visible {
+  outline: 2px solid var(--color-accent, #007aff) !important;
+  outline-offset: 2px !important;
+}
+
+/* Disabled state */
+.checkbox:disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+}

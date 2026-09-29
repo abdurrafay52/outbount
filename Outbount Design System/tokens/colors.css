@@ -1,0 +1,136 @@
+/* ============================================================
+   OUTBOUNT · COLOR SYSTEM · Pure Apple Neutral
+   Clean, modern, pure-monochrome palette. White canvas, black
+   type in light mode; pure dark canvas in dark mode.
+   ============================================================ */
+:root {
+  /* --- Apple Neutral Palette -------------------------------- */
+  --paper-0:   #FFFFFF;  /* cards, panels, menus (raised) */
+  --paper-50:  #FAFAFA;  /* subtle raised */
+  --paper-100: #FFFFFF;  /* app canvas */
+  --paper-150: #F4F4F5;  /* recessed wells, striped rows */
+  --paper-200: #E4E4E7;  /* hairline dividers */
+  --paper-300: #D4D4D8;  /* stronger borders, control outlines */
+  --paper-400: #A1A1AA;  /* disabled edges */
+
+  /* --- Ink · pure neutral black → zinc grays ---------------- */
+  --ink-950: #000000;
+  --ink-900: #09090B;  /* headings / primary chrome */
+  --ink-800: #18181B;
+  --ink-700: #27272A;
+  --ink-600: #3F3F46;  /* body */
+  --ink-550: #52525B;
+  --ink-450: #71717A;  /* muted / secondary */
+  --ink-350: #A1A1AA;  /* faint / captions / placeholders */
+  --ink-250: #D4D4D8;  /* disabled text */
+
+  /* --- Status ramps ------------------------------------------ */
+  --green-50:  #F0FDF4; --green-100: #DCFCE7; --green-200: #BBF7D0;
+  --green-500: #22C55E; --green-600: #16A34A; --green-700: #15803D;
+  --amber-50:  #FFFBEB; --amber-100: #FEF3C7; --amber-200: #FDE68A;
+  --amber-500: #F59E0B; --amber-600: #D97706; --amber-700: #B45309;
+  --red-50:    #FEF2F2; --red-100: #FEE2E2; --red-200: #FECACA;
+  --red-500:   #EF4444; --red-600: #DC2626; --red-700: #B91C1C;
+
+  /* ==========================================================
+     SEMANTIC ALIASES
+     ========================================================== */
+  --bg-app:         #FFFFFF;
+  --bg-subtle:      #F4F4F5;
+  --surface:        #FFFFFF;
+  --surface-hover:  #FAFAFA;
+  --surface-sunken: #F4F4F5;
+  --surface-inverse:#09090B;
+
+  --border-subtle: #E4E4E7;
+  --border:        #D4D4D8;
+  --border-strong: #A1A1AA;
+  --border-focus:  #09090B;
+
+  --text-strong:   #09090B;
+  --text:          #18181B;
+  --text-muted:    #52525B;
+  --text-subtle:   #71717A;
+  --text-disabled: #A1A1AA;
+  --text-inverse:  #FFFFFF;
+  --text-onbrand:  #FFFFFF;
+
+  --primary:        #09090B;
+  --primary-hover:  #000000;
+  --primary-active: #000000;
+  --primary-subtle: #F4F4F5;
+  --primary-border: #D4D4D8;
+  --primary-text:   #09090B;
+  --ring:           color-mix(in srgb, #09090B 22%, transparent);
+
+  --accent:        #18181B;
+  --accent-subtle: #F4F4F5;
+  --accent-text:   #09090B;
+
+  --success-bg: var(--green-50);  --success-border: var(--green-200);
+  --success-text: var(--green-700); --success-solid: var(--green-600);
+  --warning-bg: var(--amber-50);  --warning-border: var(--amber-200);
+  --warning-text: var(--amber-700); --warning-solid: var(--amber-600);
+  --danger-bg: var(--red-50);     --danger-border: var(--red-200);
+  --danger-text: var(--red-700);  --danger-solid: var(--red-600);
+  --info-bg: var(--paper-150);    --info-border: var(--paper-300);
+  --info-text: var(--ink-700);    --info-solid: var(--ink-800);
+
+  --viz-1: #3B82F6;
+  --viz-2: #22C55E;
+  --viz-3: #F59E0B;
+  --viz-4: #A855F7;
+  --viz-5: #06B6D4;
+  --viz-6: var(--ink-450);
+}
+
+.dark, [data-theme='dark'] {
+  --paper-0:   #111111;
+  --paper-50:  #18181B;
+  --paper-100: #0A0A0A;
+  --paper-150: #18181B;
+  --paper-200: #27272A;
+  --paper-300: #3F3F46;
+  --paper-400: #52525B;
+
+  --ink-950: #FFFFFF;
+  --ink-900: #FFFFFF;
+  --ink-800: #F4F4F5;
+  --ink-700: #E4E4E7;
+  --ink-600: #D4D4D8;
+  --ink-550: #A1A1AA;
+  --ink-450: #A1A1AA;
+  --ink-350: #71717A;
+  --ink-250: #52525B;
+
+  --bg-app:         #000000;
+  --bg-subtle:      #0A0A0A;
+  --surface:        #111111;
+  --surface-hover:  #18181B;
+  --surface-sunken: #18181B;
+  --surface-inverse:#FFFFFF;
+
+  --border-subtle: #27272A;
+  --border:        #3F3F46;
+  --border-strong: #52525B;
+  --border-focus:  #FFFFFF;
+
+  --text-strong:   #FFFFFF;
+  --text:          #F4F4F5;
+  --text-muted:    #A1A1AA;
+  --text-subtle:   #A1A1AA;
+  --text-disabled: #71717A;
+  --text-inverse:  #000000;
+  --text-onbrand:  #000000;
+
+  --primary:        #FFFFFF;
+  --primary-hover:  #F4F4F5;
+  --primary-active: #E4E4E7;
+  --primary-subtle: #18181B;
+  --primary-border: #3F3F46;
+  --primary-text:   #FFFFFF;
+
+  --accent:        #E4E4E7;
+  --accent-subtle: #18181B;
+  --accent-text:   #FFFFFF;
+}
